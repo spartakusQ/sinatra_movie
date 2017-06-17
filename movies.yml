@@ -1,0 +1,6 @@
+---
+1: !ruby/object:Movie
+  title: Alien
+  director: "Ридли Скотт"
+  year: '1979 '
+  id: 1

@@ -14,4 +14,16 @@ class MovieStore
       @store[movie.id] = movie
     end
   end
+  
+  def find(id)
+    @store.transaction do
+      @store[id]
+    end
+  end
+
+  def all
+    @store.transaction do
+      @store.roots.map { |id| @store[id] }
+    end
+  end
 end
