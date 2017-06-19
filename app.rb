@@ -1,14 +1,28 @@
 require 'sinatra'
 require 'movie'
 require 'movie_store'
+require 'login'
+require 'login_user'
 
 store = MovieStore.new('movies.yml')
-
+login = LoginUser.new('user.yml')
 
 
 get '/signin/' do
   erb :signin
 end
+
+post '/signin' do
+  @login = Login.new
+  @login.username = params['username']
+  @login.password = params['password']
+
+  login.save(@login)
+  redirect '/movies/new'
+  # перенаправление в ямл файл, поск по совпадению, если нашло совпадение то логин
+  # если нет, заного отправлять редиректом в логин
+end
+
 
 get '/movies' do
   @movies = store.all
