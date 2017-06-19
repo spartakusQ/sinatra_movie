@@ -5,7 +5,12 @@ require 'movie_store'
 store = MovieStore.new('movies.yml')
 
 
-get('/movies') do
+
+get '/signin/' do
+  erb :signin
+end
+
+get '/movies' do
   @movies = store.all
   erb :index
 end

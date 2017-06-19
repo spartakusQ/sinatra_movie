@@ -4,3 +4,8 @@
   director: "Ридли Скотт"
   year: '1979 '
   id: 1
+2: !ruby/object:Movie
+  title: '999'
+  director: '999'
+  year: '999'
+  id: 2
